@@ -4,7 +4,6 @@ import websockets
 import json
 
 PORT = 8765
-
 clients = set()
 
 async def handler(websocket, path):
@@ -23,10 +22,13 @@ async def broadcast(message):
         if client.open:
             await client.send(f"Echo: {message}")
 
-async def main():
+async def start_server():
     print(f"Starting WebSocket server on port {PORT}")
     async with websockets.serve(handler, "0.0.0.0", PORT):
         await asyncio.Future()  # run forever
 
+def main():
+    asyncio.run(start_server())
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
