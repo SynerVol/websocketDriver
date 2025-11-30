@@ -1,3 +1,4 @@
+
 # Rust driver for drone control via WebSocket and D-Bus
 Driver to run, extend, and trust on the Pi. Production-safe scaffold that keeps concerns isolated: WebSocket intake, command parsing/validation, and D-Bus dispatch to the internal logic app. It’s async, typed, and ready for logging and auth hardening.
 ## Structure
@@ -96,4 +97,26 @@ sequenceDiagram
 
     D-->>T: Video (WebSocket)
     D-->>T: Ai result (Json)
+```
+
+# Python WebSocket Driver prototype
+
+A lightweight WebSocket server designed for drone communication and telemetry relay. Built with Python’s `asyncio` and `websockets`, this package enables real-time message broadcasting between connected clients.
+
+## Features
+
+- Asynchronous WebSocket server using `asyncio`
+- Broadcasts messages to all connected clients
+- Simple echo protocol for testing and telemetry
+- Systemd service integration for embedded deployment
+- Packaged for Yocto via BitBake and `setuptools3`
+
+## Installation
+
+### From source
+
+```bash
+git clone https://github.com/SynerVol/websocketDriver.git
+cd websocketDriver
+pip install .
 ```
