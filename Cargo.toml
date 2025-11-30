@@ -1,0 +1,19 @@
+# Cargo.toml
+[package]
+name = "drone-driver"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.40", features = ["rt-multi-thread", "macros", "signal", "sync"] }
+tokio-tungstenite = "0.23"
+tungstenite = { version = "0.23", default-features = false, features = ["rustls-tls-webpki-roots"] }
+futures = "0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+zbus = { version = "4.3", features = ["tokio"] }
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+uuid = { version = "1.10", features = ["v4"] }
+time = "0.3"
